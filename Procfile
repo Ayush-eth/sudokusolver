@@ -1,0 +1,1 @@
+web: gunicorn SudokuSolver.wsgi --log-file -
