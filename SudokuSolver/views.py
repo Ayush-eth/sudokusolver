@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-
+#if you are not getting it, its not for you ha ha
 grid=[[' ']*9]*9
 def isSafe(grid, row, col, num):
     for x in range(9):
