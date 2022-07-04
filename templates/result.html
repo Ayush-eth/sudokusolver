@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Solve Your Sudoku</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="sudoku.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Ubuntu:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Titillium+Web:wght@200&family=Ubuntu:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Source+Sans+Pro&family=Titillium+Web:wght@200&family=Ubuntu:wght@300;500&display=swap');
+            *{
+
+                padding:0;
+                margin: 0;
+            }
+            body {
+                overflow: hidden; /* Hide scrollbars */
+            }
+            .box{
+                width: 50px;
+                height: 50px;
+                /* left: 400px;
+                top: 138px; */
+                background: #C4C4C4;
+                font-family: 'Ubuntu', sans-serif;
+                border-radius: 20px;
+                line-height: 48px;
+                outline: none;
+                padding:0 10px;
+                font-weight:800;
+                font-size:25px;
+                font-color:black;
+                border-color: black;
+                text-align: center;
+            }
+            .horizontal{
+                display: flex;
+            }
+
+            .container{
+                position: relative;
+                left:29%;
+                top:20px;
+            }
+
+            .title{
+                font-size:500%;
+                font-weight:500%;
+                text-align: center;
+                font-family: 'Ubuntu', sans-serif;;
+
+            }
+            a:visited {
+                color: yellow;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            #MASTHEAD{
+                text-align: center;
+                position: fixed;
+                padding: 12px 10px 0px 10px;
+                bottom: 0;
+                width: 100%;
+                /* Height of the footer*/ 
+                height: 40px;
+                background: black;
+                color: white;
+                font-family: 'Ubuntu', sans-serif;
+
+            }
+
+            .solve{
+                width: 10%;
+                height:50px;
+                border-radius:20px;
+                background-color:#42f593;
+                color:white;
+                font-weight:bold;
+                font-size:44px;
+                font-family: 'Ubuntu', sans-serif;
+                cursor:pointer;
+            }
+            .button{
+                margin: auto;
+            width: 100%;
+
+            padding: 40px 0 0 720px;
+            }
+            ::placeholder { 
+                color: black;
+              }
+        </style>
+    </head>
+    <body>
+        <div class="title">Solved!!</div>
+        <form action="/">
+        <div class="container">
+            <div class="horizontal">
+                <div class="horizontal">
+                  
+                        <input disabled disabled type="text" name="1" placeholder={{q}} class="box">
+                            
+                  
+                        <input disabled type="text" name="2" placeholder={{w}} class="box">
+                            
+                  
+                        <input disabled type="text" name="3" placeholder={{e}} class="box">
+                            
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="4" placeholder={{r}} class="box">
+                            
+                  
+                        <input disabled type="text" name="5" placeholder={{t}} class="box">
+                            
+                  
+                        <input disabled type="text" name="6" placeholder={{y}} class="box">
+                            
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="7" placeholder={{u}} class="box">
+                            
+                  
+                        <input disabled type="text" name="8" placeholder={{i}} class="box">
+                            
+                  
+                        <input disabled type="text" name="9" placeholder={{o}} class="box">
+                            
+                </div>
+            </div>
+            <div class="horizontal">
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="10" placeholder={{p}} class="box">
+                            
+                  
+                        <input disabled type="text" name="11" placeholder={{a}} class="box">
+                            
+                  
+                        <input disabled type="text" name="12" placeholder={{s}} class="box">
+                            
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="13" placeholder={{d}} class="box">
+                            
+                  
+                        <input disabled type="text" name="14" placeholder={{f}} class="box">
+                            
+                  
+                        <input disabled type="text" name="15" placeholder={{g}} class="box">
+                            
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="16" placeholder={{h}} class="box">
+                            
+                  
+                        <input disabled type="text" name="17" placeholder={{j}} class="box">
+                            
+                  
+                        <input disabled type="text" name="18" placeholder={{k}} class="box">
+                            
+                </div>
+            </div>
+            <div class="horizontal">
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="19" placeholder={{l}} class="box">
+                            
+                  
+                        <input disabled type="text" name="20" placeholder={{z}} class="box">
+                        
+                  
+                        <input disabled type="text" name="21" placeholder={{x}} class="box">
+                        
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="22" placeholder={{c}} class="box">
+                        
+                  
+                        <input disabled type="text" name="23" placeholder={{v}} class="box">
+                        
+                  
+                        <input disabled type="text" name="24" placeholder={{b}} class="box">
+                        
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="25" placeholder={{n}} class="box">
+                        
+                  
+                        <input disabled type="text" name="26" placeholder={{m}} class="box">
+                        
+                  
+                        <input disabled type="text" name="27" placeholder={{Q}} class="box">
+                        
+                </div>
+            </div>
+            <div class="horizontal">
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="28" placeholder={{W}} class="box">
+                        
+                  
+                        <input disabled type="text" name="29" placeholder={{E}} class="box">
+                        
+                  
+                        <input disabled type="text" name="30" placeholder={{R}} class="box">
+                        
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="31" placeholder={{T}} class="box">
+                        
+                  
+                        <input disabled type="text" name="32" placeholder={{Y}} class="box">
+                        
+                  
+                        <input disabled type="text" name="33" placeholder={{U}} class="box">
+                        
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="34" placeholder={{I}} class="box">
+                        
+                  
+                        <input disabled type="text" name="35" placeholder={{O}} class="box">
+                        
+                  
+                        <input disabled type="text" name="36" placeholder={{P}} class="box">
+                        
+                </div>
+            </div>
+            <div class="horizontal">
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="37" placeholder={{A}} class="box">
+                        
+                  
+                        <input disabled type="text" name="38" placeholder={{S}} class="box">
+                        
+                  
+                        <input disabled type="text" name="39" placeholder={{D}} class="box">
+                        
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="40" placeholder={{F}} class="box">
+                        
+                  
+                        <input disabled type="text" name="41" placeholder={{G}} class="box">
+                        
+                  
+                        <input disabled type="text" name="42" placeholder={{H}} class="box">
+                        
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="43" placeholder={{J}} class="box">
+                        
+                  
+                        <input disabled type="text" name="44" placeholder={{K}} class="box">
+                        
+                  
+                        <input disabled type="text" name="45" placeholder={{L}} class="box">
+                        
+                </div>
+            </div>
+            <div class="horizontal">
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="46" placeholder={{Z}} class="box">
+                        
+                  
+                        <input disabled type="text" name="47" placeholder={{X}} class="box">
+                        
+                  
+                        <input disabled type="text" name="48" placeholder={{C}} class="box">
+                        
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="49" placeholder={{V}} class="box">
+                        
+                  
+                        <input disabled type="text" name="50" placeholder={{B}} class="box">
+                  
+                  
+                        <input disabled type="text" name="51" placeholder={{N}} class="box">
+                  
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="52" placeholder={{M}} class="box">
+                  
+                  
+                        <input disabled type="text" name="53" placeholder={{oh}} class="box">
+                  
+                  
+                        <input disabled type="text" name="54" placeholder={{you}} class="box">
+                  
+                </div>
+            </div>
+            <div class="horizontal">
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="55" placeholder={{are}} class="box">
+                  
+                  
+                        <input disabled type="text" name="56" placeholder={{again}} class="box">
+                  
+                  
+                        <input disabled type="text" name="57" placeholder={{here}} class="box">
+                  
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="58" placeholder={{quick}} class="box">
+                  
+                  
+                        <input disabled type="text" name="59" placeholder={{brown}} class="box">
+                  
+                  
+                        <input disabled type="text" name="60" placeholder={{fox}} class="box">
+                  
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="61" placeholder={{jumps}} class="box">
+                  
+                  
+                        <input disabled type="text" name="62" placeholder={{xxx}} class="box">
+                  
+                  
+                        <input disabled type="text" name="63" placeholder={{sexy}} class="box">
+                  
+                </div>
+            </div>
+            <div class="horizontal">
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="64" placeholder={{hot}} class="box">
+                  
+                  
+                        <input disabled type="text" name="65" placeholder={{babe}} class="box">
+                  
+                  
+                        <input disabled type="text" name="66" placeholder={{me}} class="box">
+                  
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="67" placeholder={{iwill}} class="box">
+                  
+                  
+                        <input disabled type="text" name="68" placeholder={{become}} class="box">
+                  
+                  
+                        <input disabled type="text" name="69" placeholder={{first}} class="box">
+                  
+                </div>
+                <div class="horizontal">
+                  
+                        <input disabled type="text" name="70" placeholder={{trillionaire}} class="box">
+                  
+                  
+                        <input disabled type="text" name="71" placeholder={{if}} class="box">
+                  
+                  
+                        <input disabled type="text" name="72" placeholder={{youthink}} class="box">
+                  
+                </div>
+            </div>
+            <div class="horizontal">
+                <div class="horizontal">
+              
+                    <input disabled type="text" name="73" placeholder={{its}} class="box">
+              
+              
+                    <input disabled type="text" name="74" placeholder={{ajoke}} class="box">
+              
+              
+                    <input disabled type="text" name="75" placeholder={{then}} class="box">
+              
+                </div>
+                <div class="horizontal">
+              
+                    <input disabled type="text" name="76" placeholder={{fuck}} class="box">
+              
+              
+                    <input disabled type="text" name="77" placeholder={{you}} class="box">
+              
+              
+                    <input disabled type="text" name="78" placeholder={{mothe}} class="box">
+              
+                </div>
+                <div class="horizontal">
+              
+                    <input disabled type="text" name="79" placeholder={{rf}} class="box">
+              
+              
+                    <input disabled type="text" name="80" placeholder={{uck}} class="box">
+              
+              
+                    <input disabled type="text" name="81" placeholder={{er}}  class="box">
+              
+                </div>
+                
+            </div>
+        </div>
+        <div class="button">
+         
+                <button type="submit" class="solve">Next</button>
+              
+        </div>
+        </form>
+        <div id="MASTHEAD">
+            <a href="https://www.instagram.com/ayush._eth/?hl=en">THE  AYUSH KUMAR  PRODUCTION ©</a>
+        </div>
+        
+
+    </body>
+</html>
