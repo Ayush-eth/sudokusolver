@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'SudokuSolver.wsgi.application'
+WSGI_APPLICATION = 'SudokuSolver.wsgi.application'
 
 
 # Database
