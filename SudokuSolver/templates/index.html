@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Solve Your Sudoku</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="sudoku.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Ubuntu:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Titillium+Web:wght@200&family=Ubuntu:wght@500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Source+Sans+Pro&family=Titillium+Web:wght@200&family=Ubuntu:wght@300;500&display=swap');
+            *{
+
+                padding:0;
+                margin: 0;
+            }
+            body {
+                overflow: hidden; /* Hide scrollbars */
+            }
+            .box{
+                width: 50px;
+                height: 50px;
+                /* left: 400px;
+                top: 138px; */
+                background: #C4C4C4;
+                font-family: 'Ubuntu', sans-serif;
+                border-radius: 20px;
+                line-height: 48px;
+                outline: none;
+                padding:0 10px;
+                font-weight:800;
+                font-size:25px;
+                font-color:black;
+                border-color: black;
+                text-align: center;
+            }
+            .horizontal{
+                display: flex;
+            }
+
+            .container{
+                position: relative;
+                left:29%;
+                top:20px;
+            }
+
+            .title{
+                font-size:500%;
+                font-weight:500%;
+                text-align: center;
+                font-family: 'Ubuntu', sans-serif;;
+
+            }
+            a:visited {
+                color: yellow;
+                background-color: transparent;
+                text-decoration: none;
+            }
+            #MASTHEAD{
+                text-align: center;
+                position: fixed;
+                padding: 12px 10px 0px 10px;
+                bottom: 0;
+                width: 100%;
+                /* Height of the footer*/ 
+                height: 40px;
+                background: black;
+                color: white;
+                font-family: 'Ubuntu', sans-serif;
+
+            }
+
+            .solve{
+                width: 10%;
+                height:50px;
+                border-radius:20px;
+                background-color:#42f593;
+                color:white;
+                font-weight:bold;
+                font-size:44px;
+                font-family: 'Ubuntu', sans-serif;
+                cursor:pointer;
+            }
+            .button{
+                margin: auto;
+            width: 100%;
+
+            padding: 40px 0 0 720px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">Sudoku Solver!</div>
+        <form action="/result" method="post">{% csrf_token %}
+            <div class="container">
+                <div class="horizontal">
+                    <div class="horizontal">
+                        
+                            <input type="text" name="1" placeholder="1" class="box">
+                        
+                        
+                            <input type="text" name="2" placeholder="2" class="box">
+                        
+                        
+                            <input type="text" name="3" placeholder="3" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="4" placeholder="4" class="box">
+                        
+                        
+                            <input type="text" name="5" placeholder="5" class="box">
+                        
+                        
+                            <input type="text" name="6" placeholder="6" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="7" placeholder="7" class="box">
+                        
+                        
+                            <input type="text" name="8" placeholder="8" class="box">
+                        
+                        
+                            <input type="text" name="9" placeholder="9" class="box">
+                        
+                    </div>
+                </div>
+                <div class="horizontal">
+                    <div class="horizontal">
+                        
+                            <input type="text" name="10" placeholder="10" class="box">
+                        
+                        
+                            <input type="text" name="11" placeholder="11" class="box">
+                        
+                        
+                            <input type="text" name="12" placeholder="12" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="13" placeholder="13" class="box">
+                        
+                        
+                            <input type="text" name="14" placeholder="14" class="box">
+                        
+                        
+                            <input type="text" name="15" placeholder="15" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="16" placeholder="16" class="box">
+                        
+                        
+                            <input type="text" name="17" placeholder="17" class="box">
+                        
+                        
+                            <input type="text" name="18" placeholder="18" class="box">
+                        
+                    </div>
+                </div>
+                <div class="horizontal">
+                    <div class="horizontal">
+                        
+                            <input type="text" name="19" placeholder="19" class="box">
+                        
+                        
+                            <input type="text" name="20" placeholder="20" class="box">
+                        
+                        
+                            <input type="text" name="21" placeholder="21" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="22" placeholder="22" class="box">
+                        
+                        
+                            <input type="text" name="23" placeholder="23" class="box">
+                        
+                        
+                            <input type="text" name="24" placeholder="24" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="25" placeholder="25" class="box">
+                        
+                        
+                            <input type="text" name="26" placeholder="26" class="box">
+                        
+                        
+                            <input type="text" name="27" placeholder="27" class="box">
+                        
+                    </div>
+                </div>
+                <div class="horizontal">
+                    <div class="horizontal">
+                        
+                            <input type="text" name="28" placeholder="28" class="box">
+                        
+                        
+                            <input type="text" name="29" placeholder="29" class="box">
+                        
+                        
+                            <input type="text" name="30" placeholder="30" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="31" placeholder="31" class="box">
+                        
+                        
+                            <input type="text" name="32" placeholder="32" class="box">
+                        
+                        
+                            <input type="text" name="33" placeholder="33" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="34" placeholder="34" class="box">
+                        
+                        
+                            <input type="text" name="35" placeholder="35" class="box">
+                        
+                        
+                            <input type="text" name="36" placeholder="36" class="box">
+                        
+                    </div>
+                </div>
+                <div class="horizontal">
+                    <div class="horizontal">
+                        
+                            <input type="text" name="37" placeholder="37" class="box">
+                        
+                        
+                            <input type="text" name="38" placeholder="38" class="box">
+                        
+                        
+                            <input type="text" name="39" placeholder="39" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="40" placeholder="40" class="box">
+                        
+                        
+                            <input type="text" name="41" placeholder="41" class="box">
+                        
+                        
+                            <input type="text" name="42" placeholder="42" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="43" placeholder="43" class="box">
+                        
+                        
+                            <input type="text" name="44" placeholder="44" class="box">
+                        
+                        
+                            <input type="text" name="45" placeholder="45" class="box">
+                        
+                    </div>
+                </div>
+                <div class="horizontal">
+                    <div class="horizontal">
+                        
+                            <input type="text" name="46" placeholder="46" class="box">
+                        
+                        
+                            <input type="text" name="47" placeholder="47" class="box">
+                        
+                        
+                            <input type="text" name="48" placeholder="48" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="49" placeholder="49" class="box">
+                        
+                        
+                            <input type="text" name="50" placeholder="50" class="box">
+                        
+                        
+                            <input type="text" name="51" placeholder="51" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="52" placeholder="52" class="box">
+                        
+                        
+                            <input type="text" name="53" placeholder="53" class="box">
+                        
+                        
+                            <input type="text" name="54" placeholder="54" class="box">
+                        
+                    </div>
+                </div>
+                <div class="horizontal">
+                    <div class="horizontal">
+                        
+                            <input type="text" name="55" placeholder="55" class="box">
+                        
+                        
+                            <input type="text" name="56" placeholder="56" class="box">
+                        
+                        
+                            <input type="text" name="57" placeholder="57" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="58" placeholder="58" class="box">
+                        
+                        
+                            <input type="text" name="59" placeholder="59" class="box">
+                        
+                        
+                            <input type="text" name="60" placeholder="60" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="61" placeholder="61" class="box">
+                        
+                        
+                            <input type="text" name="62" placeholder="62" class="box">
+                        
+                        
+                            <input type="text" name="63" placeholder="63" class="box">
+                        
+                    </div>
+                </div>
+                <div class="horizontal">
+                    <div class="horizontal">
+                        
+                            <input type="text" name="64" placeholder="64" class="box">
+                        
+                        
+                            <input type="text" name="65" placeholder="65" class="box">
+                        
+                        
+                            <input type="text" name="66" placeholder="66" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="67" placeholder="67" class="box">
+                        
+                        
+                            <input type="text" name="68" placeholder="68" class="box">
+                        
+                        
+                            <input type="text" name="69" placeholder="69" class="box">
+                        
+                    </div>
+                    <div class="horizontal">
+                        
+                            <input type="text" name="70" placeholder="70" class="box">
+                        
+                        
+                            <input type="text" name="71" placeholder="71" class="box">
+                        
+                        
+                            <input type="text" name="72" placeholder="72" class="box">
+                        
+                    </div>
+                </div>
+                <div class="horizontal">
+                <div class="horizontal">
+                    
+                        <input type="text" name="73" placeholder="73" class="box">
+                    
+                    
+                        <input type="text" name="74" placeholder="74" class="box">
+                    
+                    
+                        <input type="text" name="75" placeholder="75" class="box">
+                    
+                </div>
+                <div class="horizontal">
+                    
+                        <input type="text" name="76" placeholder="76" class="box">
+                    
+                    
+                        <input type="text" name="77" placeholder="77" class="box">
+                    
+                    
+                        <input type="text" name="78" placeholder="78" class="box">
+                    
+                </div>
+                <div class="horizontal">
+                    
+                        <input type="text" name="79" placeholder="79" class="box">
+                    
+                    
+                        <input type="text" name="80" placeholder="80" class="box">
+                    
+                    
+                        <input type="text" name="81" placeholder="81" class="box">
+                    
+                </div>
+                </div>
+            </div>
+            <div class="button">
+         
+                <button type="submit" class="solve">Solve!</button>
+              
+        </div>
+        </form>
+        <div id="MASTHEAD">
+            <a href="https://www.instagram.com/ayush._eth/?hl=en">THE  AYUSH KUMAR  PRODUCTION ©</a>
+    </div>
+        
+   
+        
+        
+    </body>
+</html>
