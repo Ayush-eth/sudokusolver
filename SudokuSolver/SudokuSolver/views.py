@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-# if you are not able to understand it, its not for you ha ha!
+
 grid=[[' ']*9]*9
 def isSafe(grid, row, col, num):
     for x in range(9):
@@ -143,12 +143,17 @@ def solve(request):
     
     grid=[[dj1 ,dj2 ,dj3 ,dj4 ,dj5 ,dj6 ,dj7 ,dj8 ,dj9],[dj10,dj11,dj12,dj13,dj14,dj15,dj16,dj17,dj18],[dj19,dj20,dj21,dj22,dj23,dj24,dj25,dj26,dj27],[dj28,dj29,dj30,dj31,dj32,dj33,dj34,dj35,dj36],[dj37,dj38,dj39,dj40,dj41,dj42,dj43,dj44,dj45],[dj46,dj47,dj48,dj49,dj50,dj51,dj52,dj53,dj54],[dj55,dj56,dj57,dj58,dj59,dj60,dj61,dj62,dj63],[dj64,dj65,dj66,dj67,dj68,dj69,dj70,dj71,dj72],[dj73,dj74,dj75,dj76,dj77,dj78,dj79,dj80,dj81]] 
     sol(grid)
-    a=['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','1','2','3','4','5','6','7','8','9','xxx','sexy','hot','babe','me','iwill','become','first','trillionaire','if','youthink','its','ajoke','then','fuck','you','mothe','rf','uck','er']
+    a=['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M','oh','you','are','again','here','quick','brown','fox','jumps','xxx','sexy','hot','babe','me','iwill','become','first','trillionaire','if','youthink','its','ajoke','then','fuck','you','mothe','rf','uck','er']
     dict={}     
     for i in range(81):    
         dict[a[i]]=grid[int(i/9)][(i-int(i/9)*9)%9]
     print(dict)
+    for i in range(9):
+        for j in range(9):
+            print(grid[i][j],end=" ")
+        print('\n')
     return render(request,'result.html',dict)
+    
 
 
 def solveanother(request):
